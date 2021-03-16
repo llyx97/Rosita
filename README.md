@@ -14,7 +14,5 @@ Data Preparation
 ========
 Download the [GLUE data](https://gluebenchmark.com/tasks) by running 
 ```
-
-python download_glue_data.py --data_dir glue_data --tasks all
-
+python download_glue_data.py --data_dir data --tasks all
 ```
