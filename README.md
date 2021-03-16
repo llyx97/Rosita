@@ -5,7 +5,7 @@ This repository contains implementation of the paper "ROSITA: Refined BERT cOmpr
 
 Requirements
 ========
-Python3
-torch=1.6.0
-tqdm
-boto3
+Python3 <br />
+torch=1.6.0 <br />
+tqdm <br />
+boto3 <br />
