@@ -969,16 +969,16 @@ def main():
         for key in config[task_name]:
             vars(args)[key] = config[task_name][key]
         args.logging_dir = os.path.join(args.output_dir, 'logging')
-        if not os.path.exists(args.logging_dir):
-            os.makedirs(args.logging_dir)
-        if is_tensorboard_available():
-            tb_writer = SummaryWriter(log_dir=args.logging_dir)
 
     # Prepare task settings
     if os.path.exists(args.output_dir) and os.listdir(args.output_dir):
         raise ValueError("Output directory ({}) already exists and is not empty.".format(args.output_dir))
     if not os.path.exists(args.output_dir):
         os.makedirs(args.output_dir)
+    if 'logging_dir' in args:
+        if not os.path.exists(args.logging_dir):
+            if is_tensorboard_available():
+                tb_writer = SummaryWriter(log_dir=args.logging_dir)
 
     if task_name in default_params:
         args.max_seq_length = default_params[task_name]["max_seq_length"]
