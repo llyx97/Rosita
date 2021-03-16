@@ -1,1 +1,65 @@
-{"cola": {"teacher_model": "models/bert_ft/CoLA", "student_model": "models/bert_pt", "data_dir": "../../tinybert/glue/CoLA", "output_dir": "models/kd_bert_ft/CoLA", "lr_schedule": "warmup_linear", "warmup_proportion": 0.1, "eval_step": 100, "learning_rate": 2e-05, "repr_distill": false, "pred_distill": true, "num_train_epochs": 5}, "sst-2": {"teacher_model": "models/bert_ft/SST-2", "student_model": "models/bert_pt", "data_dir": "../../tinybert/glue/SST-2", "output_dir": "models/kd_bert_ft/SST-2", "lr_schedule": "warmup_linear", "warmup_proportion": 0.1, "eval_step": 500, "learning_rate": 2e-05, "repr_distill": false, "pred_distill": true, "num_train_epochs": 5}, "mnli": {"teacher_model": "models/bert_ft/MNLI", "student_model": "models/bert_pt", "data_dir": "../../tinybert/glue/MNLI", "output_dir": "models/kd_bert_ft/MNLI", "lr_schedule": "warmup_linear", "warmup_proportion": 0.1, "eval_step": 500, "learning_rate": 5e-05, "repr_distill": false, "pred_distill": true, "num_train_epochs": 3}, "qnli": {"teacher_model": "models/bert_ft/QNLI", "student_model": "models/bert_pt", "data_dir": "../../tinybert/glue/QNLI", "output_dir": "models/kd_bert_ft/QNLI", "lr_schedule": "warmup_linear", "warmup_proportion": 0.1, "eval_step": 500, "learning_rate": 2e-05, "repr_distill": false, "pred_distill": true}, "qqp": {"teacher_model": "models/bert_ft/QQP", "student_model": "models/bert_pt", "data_dir": "../../tinybert/glue/QQP", "output_dir": "models/kd_bert_ft/QQP", "lr_schedule": "warmup_linear", "warmup_proportion": 0.1, "eval_step": 500, "learning_rate": 2e-05, "repr_distill": false, "pred_distill": true}}
+{
+ "cola": {
+  "teacher_model": "models/bert_ft/CoLA",
+  "student_model": "models/bert_pt",
+  "data_dir": "../../tinybert/glue/CoLA",
+  "output_dir": "models/kd_bert_ft/CoLA",
+  "lr_schedule": "warmup_linear",
+  "warmup_proportion": 0.1,
+  "eval_step": 100,
+  "learning_rate": 2e-05,
+  "repr_distill": false,
+  "pred_distill": true,
+  "num_train_epochs": 5
+ },
+ "sst-2": {
+  "teacher_model": "models/bert_ft/SST-2",
+  "student_model": "models/bert_pt",
+  "data_dir": "../../tinybert/glue/SST-2",
+  "output_dir": "models/kd_bert_ft/SST-2",
+  "lr_schedule": "warmup_linear",
+  "warmup_proportion": 0.1,
+  "eval_step": 500,
+  "learning_rate": 2e-05,
+  "repr_distill": false,
+  "pred_distill": true,
+  "num_train_epochs": 5
+ },
+ "mnli": {
+  "teacher_model": "models/bert_ft/MNLI",
+  "student_model": "models/bert_pt",
+  "data_dir": "../../tinybert/glue/MNLI",
+  "output_dir": "models/kd_bert_ft/MNLI",
+  "lr_schedule": "warmup_linear",
+  "warmup_proportion": 0.1,
+  "eval_step": 500,
+  "learning_rate": 5e-05,
+  "repr_distill": false,
+  "pred_distill": true,
+  "num_train_epochs": 3
+ },
+ "qnli": {
+  "teacher_model": "models/bert_ft/QNLI",
+  "student_model": "models/bert_pt",
+  "data_dir": "../../tinybert/glue/QNLI",
+  "output_dir": "models/kd_bert_ft/QNLI",
+  "lr_schedule": "warmup_linear",
+  "warmup_proportion": 0.1,
+  "eval_step": 500,
+  "learning_rate": 2e-05,
+  "repr_distill": false,
+  "pred_distill": true
+ },
+ "qqp": {
+  "teacher_model": "models/bert_ft/QQP",
+  "student_model": "models/bert_pt",
+  "data_dir": "../../tinybert/glue/QQP",
+  "output_dir": "models/kd_bert_ft/QQP",
+  "lr_schedule": "warmup_linear",
+  "warmup_proportion": 0.1,
+  "eval_step": 500,
+  "learning_rate": 2e-05,
+  "repr_distill": false,
+  "pred_distill": true
+ }
+}
