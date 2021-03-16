@@ -1,5 +1,4 @@
-import dataclasses, argparse, logging, os, sys, torch
-from dataclasses import dataclass, field
+import argparse, logging, os, sys, torch
 from typing import Dict, Optional
 
 import numpy as np
