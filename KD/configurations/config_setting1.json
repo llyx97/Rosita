@@ -1,9 +1,9 @@
 {
  "cola": {
-  "teacher_model": "models/bert_ft/CoLA",
-  "student_model": "models/prun_bert/CoLA/a2_l8_f512_e128",
-  "data_dir": "../../tinybert/glue/CoLA",
-  "output_dir": "models/OUTPUT_DIR_FOR_SET1/CoLA/a2_l8_f512_e128",
+  "teacher_model": "../models/bert_ft/CoLA",
+  "student_model": "../models/prun_bert/CoLA/a2_l8_f512_e128",
+  "data_dir": "../data/glue/CoLA",
+  "output_dir": "../models/setting1/CoLA/a2_l8_f512_e128",
   "lr_schedule": "warmup_linear",
   "warmup_proportion": 0.1,
   "eval_step": 500,
@@ -14,10 +14,10 @@
   "patience": 10
  },
  "sst-2": {
-  "teacher_model": "models/bert_ft/SST-2",
-  "student_model": "models/prun_bert/SST-2/a2_l8_f512_e128",
-  "data_dir": "../../tinybert/glue/SST-2",
-  "output_dir": "models/OUTPUT_DIR_FOR_SET1/SST-2/a2_l8_f512_e128",
+  "teacher_model": "../models/bert_ft/SST-2",
+  "student_model": "../models/prun_bert/SST-2/a2_l8_f512_e128",
+  "data_dir": "../data/glue/SST-2",
+  "output_dir": "../models/setting1/SST-2/a2_l8_f512_e128",
   "lr_schedule": "warmup_linear",
   "warmup_proportion": 0.1,
   "eval_step": 500,
@@ -27,10 +27,10 @@
   "num_train_epochs": 10
  },
  "mnli": {
-  "teacher_model": "models/bert_ft/MNLI",
-  "student_model": "models/prun_bert/MNLI/a2_l8_f512_e128",
-  "data_dir": "../../tinybert/glue/MNLI",
-  "output_dir": "models/OUTPUT_DIR_FOR_SET1/MNLI/a2_l8_f512_e128",
+  "teacher_model": "../models/bert_ft/MNLI",
+  "student_model": "../models/prun_bert/MNLI/a2_l8_f512_e128",
+  "data_dir": "../data/glue/MNLI",
+  "output_dir": "../models/setting1/MNLI/a2_l8_f512_e128",
   "lr_schedule": "warmup_linear",
   "warmup_proportion": 0.1,
   "eval_step": 500,

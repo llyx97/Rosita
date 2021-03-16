@@ -1,9 +1,9 @@
 {
  "cola": {
-  "teacher_model": "models/kd_bert_ft/CoLA",
-  "student_model": "models/kd_bert_ft/CoLA",
-  "data_dir": "../../tinybert/glue/CoLA",
-  "output_dir": "models/kd_prun_bert/CoLA/bert-8layer_iter_depth",
+  "teacher_model": "../models/bert_student/CoLA",
+  "student_model": "../models/bert_student/CoLA",
+  "data_dir": "../data/CoLA",
+  "output_dir": "../models/prun_bert_student/CoLA/bert-8layer_iter_depth",
   "lr_schedule": "none",
   "eval_step": 500,
   "learning_rate": 1e-05,
@@ -18,10 +18,10 @@
   "num_train_epochs": 10
  },
  "sst-2": {
-  "teacher_model": "models/kd_bert_ft/SST-2",
-  "student_model": "models/kd_bert_ft/SST-2",
-  "data_dir": "../../tinybert/glue/SST-2",
-  "output_dir": "models/kd_prun_bert/SST-2/bert-8layer_iter_depth",
+  "teacher_model": "../models/bert_student/SST-2",
+  "student_model": "../models/bert_student/SST-2",
+  "data_dir": "../data/SST-2",
+  "output_dir": "../models/prun_bert_student/SST-2/bert-8layer_iter_depth",
   "lr_schedule": "none",
   "eval_step": 500,
   "learning_rate": 2e-05,
@@ -36,10 +36,10 @@
   "num_train_epochs": 5
  },
  "mnli": {
-  "teacher_model": "models/kd_bert_ft/MNLI",
-  "student_model": "models/kd_bert_ft/MNLI",
-  "data_dir": "../../tinybert/glue/MNLI",
-  "output_dir": "models/kd_prun_bert/MNLI/bert-8layer_iter_depth",
+  "teacher_model": "../models/bert_student/MNLI",
+  "student_model": "../models/bert_student/MNLI",
+  "data_dir": "../data/MNLI",
+  "output_dir": "../models/prun_bert_student/MNLI/bert-8layer_iter_depth",
   "lr_schedule": "none",
   "eval_step": 500,
   "learning_rate": 2e-05,
@@ -54,10 +54,10 @@
   "num_train_epochs": 2
  },
  "qnli": {
-  "teacher_model": "models/kd_bert_ft/QNLI",
-  "student_model": "models/kd_bert_ft/QNLI",
-  "data_dir": "../../tinybert/glue/QNLI",
-  "output_dir": "models/kd_prun_bert/QNLI/bert-8layer_iter_depth",
+  "teacher_model": "../models/bert_student/QNLI",
+  "student_model": "../models/bert_student/QNLI",
+  "data_dir": "../data/QNLI",
+  "output_dir": "../models/prun_bert_student/QNLI/bert-8layer_iter_depth",
   "lr_schedule": "none",
   "eval_step": 500,
   "learning_rate": 3e-05,
@@ -72,10 +72,10 @@
   "num_train_epochs": 3
  },
  "qqp": {
-  "teacher_model": "models/kd_bert_ft/QQP",
-  "student_model": "models/kd_bert_ft/QQP",
-  "data_dir": "../../tinybert/glue/QQP",
-  "output_dir": "models/kd_prun_bert/QQP/bert-8layer_iter_depth",
+  "teacher_model": "../models/bert_student/QQP",
+  "student_model": "../models/bert_student/QQP",
+  "data_dir": "../data/QQP",
+  "output_dir": "../models/prun_bert_student/QQP/bert-8layer_iter_depth",
   "lr_schedule": "none",
   "eval_step": 500,
   "learning_rate": 2e-05,

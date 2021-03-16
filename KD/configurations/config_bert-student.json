@@ -1,9 +1,9 @@
 {
  "cola": {
-  "teacher_model": "models/bert_ft/CoLA",
-  "student_model": "models/bert_pt",
-  "data_dir": "../../tinybert/glue/CoLA",
-  "output_dir": "models/kd_bert_ft/CoLA",
+  "teacher_model": "../models/bert_ft/CoLA",
+  "student_model": "../models/bert_pt",
+  "data_dir": "../data/CoLA",
+  "output_dir": "../models/bert_student/CoLA",
   "lr_schedule": "warmup_linear",
   "warmup_proportion": 0.1,
   "eval_step": 100,
@@ -13,10 +13,10 @@
   "num_train_epochs": 5
  },
  "sst-2": {
-  "teacher_model": "models/bert_ft/SST-2",
-  "student_model": "models/bert_pt",
-  "data_dir": "../../tinybert/glue/SST-2",
-  "output_dir": "models/kd_bert_ft/SST-2",
+  "teacher_model": "../models/bert_ft/SST-2",
+  "student_model": "../models/bert_pt",
+  "data_dir": "../data/SST-2",
+  "output_dir": "../models/bert_student/SST-2",
   "lr_schedule": "warmup_linear",
   "warmup_proportion": 0.1,
   "eval_step": 500,
@@ -26,10 +26,10 @@
   "num_train_epochs": 5
  },
  "mnli": {
-  "teacher_model": "models/bert_ft/MNLI",
-  "student_model": "models/bert_pt",
-  "data_dir": "../../tinybert/glue/MNLI",
-  "output_dir": "models/kd_bert_ft/MNLI",
+  "teacher_model": "../models/bert_ft/MNLI",
+  "student_model": "../models/bert_pt",
+  "data_dir": "../data/MNLI",
+  "output_dir": "../models/bert_student/MNLI",
   "lr_schedule": "warmup_linear",
   "warmup_proportion": 0.1,
   "eval_step": 500,
@@ -39,27 +39,29 @@
   "num_train_epochs": 3
  },
  "qnli": {
-  "teacher_model": "models/bert_ft/QNLI",
-  "student_model": "models/bert_pt",
-  "data_dir": "../../tinybert/glue/QNLI",
-  "output_dir": "models/kd_bert_ft/QNLI",
+  "teacher_model": "../models/bert_ft/QNLI",
+  "student_model": "../models/bert_pt",
+  "data_dir": "../data/QNLI",
+  "output_dir": "../models/bert_student/QNLI",
   "lr_schedule": "warmup_linear",
   "warmup_proportion": 0.1,
   "eval_step": 500,
   "learning_rate": 2e-05,
   "repr_distill": false,
-  "pred_distill": true
+  "pred_distill": true,
+  "num_train_epochs": 3
  },
  "qqp": {
-  "teacher_model": "models/bert_ft/QQP",
-  "student_model": "models/bert_pt",
-  "data_dir": "../../tinybert/glue/QQP",
-  "output_dir": "models/kd_bert_ft/QQP",
+  "teacher_model": "../models/bert_ft/QQP",
+  "student_model": "../models/bert_pt",
+  "data_dir": "../data/QQP",
+  "output_dir": "../models/bert_student/QQP",
   "lr_schedule": "warmup_linear",
   "warmup_proportion": 0.1,
   "eval_step": 500,
   "learning_rate": 2e-05,
   "repr_distill": false,
-  "pred_distill": true
+  "pred_distill": true,
+  "num_train_epochs": 3
  }
 }
