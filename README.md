@@ -5,7 +5,9 @@ This repository contains implementation of the paper "ROSITA: Refined BERT cOmpr
 
 The codes for fine-tuning models (w/o knowledge distillation) are modified from [huggingface/transformers](https://github.com/huggingface/transformers).
 
-The codes for knowledge distillation are modified from [TinyBERT](https://github.com/huawei-noah/Pretrained-Language-Model/tree/master/TinyBERT)
+The codes for knowledge distillation are modified from [TinyBERT](https://github.com/huawei-noah/Pretrained-Language-Model/tree/master/TinyBERT).
+
+The training procedure of different model are illustrated below. For more details, please refer to the paper.
 
 Requirements
 ========
