@@ -127,7 +127,7 @@ KD Setting1: one-step pruning + one-stage KD
 ========
 Step1: Compress BERT as in Step1 of One-step pruning & fine-tuning.
 
-Step2: To train the compressed model with KD setting1, enter `KD/` and run:
+Step2: To train the compressed model with KD Setting1, enter `KD/` and run:
 ```
 python train.py \
         --config_dir configurations/config_setting1.json \
@@ -135,4 +135,4 @@ python train.py \
         --do_lower_case \
         --aug_train 
 ```
-When it comes to the augmented datasets for QNLI, QQP and MNLI, we can run `train_with_subset.py` instead, which reduces the memory consumption. 
+When it comes to the augmented datasets for QNLI, QQP and MNLI, we can run `train_with_subset.py` instead, which divides the training set into a number of subsets to reduce the memory consumption. 
