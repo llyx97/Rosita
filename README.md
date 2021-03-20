@@ -22,7 +22,7 @@ python download_glue_data.py --data_dir data --tasks all
 ```
 The extracted .tsv files for CoLA and SST-2 are given in the `data/` folder.
 
-Step2: Download the pre-trained language model BERT (bert-base-uncased) and [GloVe](http://nlp.stanford.edu/data) (glove.42B.300d) embeddings, to `glove/` and `models/bert_pt/` respectively.
+Step2: Download the pre-trained language model BERT (bert-base-uncased) and [GloVe](http://nlp.stanford.edu/data) (glove.42B.300d) embeddings, to `models/bert_pt/` and `glove/` respectively.
 
 Step3: Conduct data augmentation by running:
 ```
