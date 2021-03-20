@@ -38,14 +38,14 @@ python data_augmentation.py --pretrained_bert_model models/bert_pt \
 ```
 The augmented dataset `train_aug.tsv` will be automatically saved into `data/${TASK_NAME}$`.
 
-Step4(Optional): For QNLI, QQP and MNLI which have millions of augmented data, we can divide `train_aug.tsv` into subsets to reduce the memory consumption in training. 
+Step4 (Optional): For QNLI, QQP and MNLI which have millions of augmented data, we can divide `train_aug.tsv` into subsets to reduce the memory consumption in training. 
 
-In practice, enter the directory `data/${TASK_NAME}$` and run the commands (for Linux):
+In practice, enter the directory `data/${TASK_NAME}$/` and run the (Linux) commands:
 ```
 split -500000 -d train_aug.tsv train_aug
 for i in `ls|grep train_aug`; do a=`echo $i|awk -F '.tsv' '{print $1$2".tsv"}'`; mv $i $a; done
 ```
-Now your have subsets with 500,000 datas in each. The file names are `train_aug00.tsv, train_aug01.tsv ...`
+Now we have subsets with 500,000 datas in each. The file names are `train_aug00.tsv, train_aug01.tsv ...`
 
 Fine-tuning BERT-base
 ========
