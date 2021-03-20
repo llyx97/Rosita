@@ -36,7 +36,7 @@ python data_augmentation.py --pretrained_bert_model models/bert_pt \
                             --glue_dir data \  
                             --task_name ${TASK_NAME}$
 ```
-The augmented dataset `train_aug.tsv` is automatically saved into `data/${TASK_NAME}$`.
+The augmented dataset `train_aug.tsv` will be automatically saved into `data/${TASK_NAME}$`.
 
 Fine-tuning BERT-base
 ========
@@ -71,3 +71,4 @@ python train.py \
         --do_lower_case \
         --aug_train 
 ```
+The BERT(student) model will be automatically saved into `models/bert_student/${TASK_NAME}$`
