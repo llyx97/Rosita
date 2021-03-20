@@ -135,4 +135,4 @@ python train.py \
         --do_lower_case \
         --aug_train 
 ```
-When it comes to the augmented datasets for QNLI, QQP and MNLI, we can run `train_with_subset.py` instead, which divides the training set into a number of subsets to reduce the memory consumption. 
+When it comes to the augmented datasets for QNLI, QQP and MNLI, we can run `train_with_subset.py` instead, which loads the training subsets (which are constructed in Data Preparation) to reduce the memory consumption. 
