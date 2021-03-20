@@ -84,7 +84,7 @@ python train.py \
         --aug_train 
 ```
 
-Compress and train BERT with ground-truth labels
+One-step pruning & fine-tuning
 ========
 Step1: To compress the fine-tuned BERT-base model, enter the directory `Pruning/` and run:
 ```
