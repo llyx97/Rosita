@@ -24,7 +24,7 @@ The extracted .tsv files for CoLA and SST-2 are given in the `data/` folder.
 
 Step2: Download the pre-trained language model BERT (bert-base-uncased) and [GloVe](http://nlp.stanford.edu/data) (glove.42B.300d) embeddings, to `models/bert_pt/` and `glove/` respectively.
 
-Step3: Conduct data augmentation using the script `data_augmentation.py` in `KD/`:
+Step3: Conduct data augmentation by running:
 ```
 python data_augmentation.py --pretrained_bert_model models/bert_pt \
                             --glove_embs ${GLOVE_EMB}$ \
