@@ -71,4 +71,15 @@ python train.py \
         --do_lower_case \
         --aug_train 
 ```
-The BERT(student) model will be automatically saved into `models/bert_student/${TASK_NAME}$`
+The trained BERT(student) model will be automatically saved into `models/bert_student/${TASK_NAME}$`.
+
+Training BERT-8layer
+========
+To train the BERT-8layer with BERT(student as the teacher, run:
+```
+python train.py \
+        --config_dir configurations/config_bert-8layer.json \
+        --task_name ${TASK_NAME}$ \
+        --do_lower_case \
+        --aug_train 
+```
