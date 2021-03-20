@@ -20,11 +20,13 @@ Step1: Download the [GLUE data](https://gluebenchmark.com/tasks) by running
 ```
 python download_glue_data.py --data_dir data --tasks all
 ```
-The extracted .tsv files for CoLA and SST-2 are already given in the `data` folder.
+The extracted .tsv files for CoLA and SST-2 are given in the `data` folder.
 
-Step2: Conduct data augmentation by running:
+Step2: Download the pre-trained language model BERT (to models/bert_pt/) and GloVe (to glove/) embeddings.
+
+Step3: Conduct data augmentation by running:
 ```
-python data_augmentation.py --pretrained_bert_model ${BERT_BASE_DIR}$ \
+python data_augmentation.py --pretrained_bert_model models/bert_pt \
                             --glove_embs ${GLOVE_EMB}$ \
                             --glue_dir ${GLUE_DIR}$ \  
                             --task_name ${TASK_NAME}$
