@@ -100,7 +100,7 @@ python3 pruning_one_step.py \
 The four hyperparameters `keep_heads`, `keep_layers`, `ffn_hidden_dim` and `emb_hidden_dim` construct a space of the model's architecture.
 In the final setting of ROSITA, `keep_heads=2`, `keep_layers=8`, `ffn_hidden_dim=512` and `emb_hidden_dim=128`.
 
-Step2: To train the compressed model with Cross-entropy (CE) loss, run:
+Step2: To train the compressed model with ground-truth labels, run:
 ```
 python run_glue.py \
   --model_type bert \
