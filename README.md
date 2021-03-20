@@ -38,9 +38,9 @@ python data_augmentation.py --pretrained_bert_model models/bert_pt \
 ```
 The augmented dataset `train_aug.tsv` is automatically saved into `data/${TASK_NAME}$`.
 
-Fine-tuning BERT
+Fine-tuning BERT-base
 ========
-To fine-tune the pre-trained BERT model on a downstream task, enter the directory `Pruning/` and run:
+To fine-tune the pre-trained BERT model on a downstream task ${TASK_NAME}$, enter the directory `Pruning/` and run:
 ```
 python run_glue.py \
   --model_type bert \
@@ -59,5 +59,15 @@ python run_glue.py \
   --logging_steps 50 \
   --save_steps 0 \
   --is_prun False \
-  --seed $SEED \
+```
+
+Training BERT(student)
+========
+To train the BERT(student) with the fine-tuned BERT-base as teacher, enter the directory `KD/` and run:
+```
+python train.py \
+        --config_dir configurations/config_bert-student.json \
+        --task_name ${TASK_NAME}$ \
+        --do_lower_case \
+        --aug_train 
 ```
