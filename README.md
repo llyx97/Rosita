@@ -7,7 +7,7 @@ The codes for fine-tuning models (w/o knowledge distillation (KD)) are modified 
 
 The codes for KD are modified from [TinyBERT](https://github.com/huawei-noah/Pretrained-Language-Model/tree/master/TinyBERT).
 
-The training procedure of different models is illustrated below. For more details of the experimental setup and hyper-parameters, please refer to the appendix of our paper.
+The training procedure of different models is illustrated below. For more details of the experimental setup and hyper-parameters, please refer to our paper.
 
 Requirements
 ========
