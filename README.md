@@ -121,3 +121,17 @@ python run_glue.py \
   --is_prun True
 ```
 where the training hyperparameter are for the CoLA dataset. For settings of the other datasets, please refer to the appendix of our paper.
+
+
+KD Setting1: one-step pruning + one-stage KD
+========
+Step1: Compress BERT as in Step1 of One-step pruning & fine-tuning.
+
+Step2: To train the compressed model with KD setting1, enter `KD/` and run:
+```
+python train.py \
+        --config_dir configurations/config_setting1.json \
+        --task_name ${TASK_NAME}$ \
+        --do_lower_case \
+        --aug_train 
+```
