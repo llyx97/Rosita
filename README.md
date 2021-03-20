@@ -7,7 +7,7 @@ The codes for fine-tuning models (w/o knowledge distillation (KD)) are modified 
 
 The codes for KD are modified from [TinyBERT](https://github.com/huawei-noah/Pretrained-Language-Model/tree/master/TinyBERT).
 
-The training procedure of different models is illustrated below. For more details of the experimental setup, please refer to the appendix of our paper.
+The training procedure of different models is illustrated below. For more details of the experimental setup and hyper-parameters, please refer to the appendix of our paper.
 
 Requirements
 ========
@@ -51,7 +51,7 @@ python run_glue.py \
   --evaluate_during_training \
   --data_dir ../data/${TASK_NAME}$ \
   --max_seq_length 128 \
-  --per_device_train_batch_size 32 \
+  --per_gpu_train_batch_size 32 \
   --learning_rate 2e-5 \
   --num_train_epochs 5.0 \
   --output_dir ../models/bert_ft/${TASK_NAME}$ \
