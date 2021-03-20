@@ -97,4 +97,27 @@ python3 pruning_one_step.py \
         -ffn_hidden_dim ${HIDDEN_DIM_OF_FFN}$ \
         -emb_hidden_dim ${MATRIX_RANK_OF_EMB_FACTORIZATION}$
 ```
+The four hyperparameters `keep_heads`, `keep_layers`, `ffn_hidden_dim` and `emb_hidden_dim` construct a space of the model's architecture.
 In the final setting of ROSITA, `keep_heads=2`, `keep_layers=8`, `ffn_hidden_dim=512` and `emb_hidden_dim=128`.
+
+Step2: To train the compressed model with Cross-entropy (CE) loss, run:
+```
+python run_glue.py \
+  --model_type bert \
+  --model_name_or_path ../models/prun_bert/CoLA/a2_l8_f512_e128 \
+  --task_name CoLA \
+  --do_train \
+  --do_eval \
+  --evaluate_during_training \
+  --data_dir ../data/CoLA \
+  --max_seq_length 64 \
+  --per_gpu_train_batch_size 32 \
+  --learning_rate 2e-5 \
+  --num_train_epochs 20.0 \
+  --output_dir ../models/one_step_prun/CoLA/a2_l8_f512_e128 \
+  --logging_dir ../models/one_step_prun/CoLA/a2_l8_f512_e128/logging \
+  --logging_steps 100 \
+  --save_steps 0 \
+  --is_prun True
+```
+where the training hyperparameter are for the CoLA dataset. For settings of the other datasets, please refer to the appendix of our paper.
