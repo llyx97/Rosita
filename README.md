@@ -30,7 +30,8 @@ python download_bert.py
 Step3: Conduct data augmentation by running:
 ```
 python data_augmentation.py --pretrained_bert_model models/bert_pt \
-                            --glove_embs ${GLOVE_EMB}$ \
-                            --glue_dir ${GLUE_DIR}$ \  
+                            --glove_embs glove/glove.42B.300d.txt \
+                            --glue_dir data \  
                             --task_name ${TASK_NAME}$
 ```
+The augmented dataset `train_aug.tsv` is automatically saved into `data/${TASK_NAME}$`.
