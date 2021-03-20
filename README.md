@@ -83,3 +83,18 @@ python train.py \
         --do_lower_case \
         --aug_train 
 ```
+
+Compress the fine-tuned BERT-base model and train the compressed model with Cross-entropy (CE) loss.
+========
+Step1: To compress the fine-tuned BERT-base model, enter the directory `Pruning/` and run:
+```
+python3 pruning_one_step.py \
+        -model_path ../models/bert_ft \
+        -output_dir ../models/prun_bert \
+        -task ${TASK_NAME}$ \
+        -keep_heads ${NUM_OF_ATTN_HEADS_TO_KEEP}$ \
+        -num_layers ${NUM_OF_LAYERS_TO_KEEP}$ \
+        -ffn_hidden_dim ${HIDDEN_DIM_OF_FFN}$ \
+        -emb_hidden_dim ${MATRIX_RANK_OF_EMB_FACTORIZATION}$
+```
+In the final setting of ROSITA, `keep_heads=2`, `keep_layers=8`, `ffn_hidden_dim=512` and `emb_hidden_dim=128`.
