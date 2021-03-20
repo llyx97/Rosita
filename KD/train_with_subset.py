@@ -977,7 +977,7 @@ def main():
         for key in config[task_name]:
             vars(args)[key] = config[task_name][key]
         args.logging_dir = os.path.join(args.output_dir, 'logging')
-    assert args.aug_train==True, "Use subset training only when data augmentation is applied."
+    assert args.aug_train==True, "Use subset training only when data augmentation is applied. Use the argument --aug_train"
 
     # Prepare task settings
     if os.path.exists(args.output_dir) and os.listdir(args.output_dir):
