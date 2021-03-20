@@ -931,15 +931,6 @@ def main():
             "rte": {"max_seq_length": 128, 'train_batch_size': 32}
     }
 
-    # number of augmented data for each dataset
-    num_aug_data = {
-            "cola": 213080,
-            "mnli": 8049121,
-            "qnli": 4246837,
-            "sst-2": 1118455,
-            "qqp": 7621089
-    }
-
     acc_tasks = ["mnli", "mrpc", "sst-2", "qqp", "qnli", "rte"]
     corr_tasks = ["sts-b"]
     mcc_tasks = ["cola"]
