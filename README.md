@@ -84,7 +84,7 @@ python train.py \
         --aug_train 
 ```
 
-Compress the fine-tuned BERT-base model and train the compressed model with Cross-entropy (CE) loss.
+Compress and train BERT with ground-truth labels
 ========
 Step1: To compress the fine-tuned BERT-base model, enter the directory `Pruning/` and run:
 ```
@@ -97,7 +97,7 @@ python3 pruning_one_step.py \
         -ffn_hidden_dim ${HIDDEN_DIM_OF_FFN}$ \
         -emb_hidden_dim ${MATRIX_RANK_OF_EMB_FACTORIZATION}$
 ```
-The four hyperparameters `keep_heads`, `keep_layers`, `ffn_hidden_dim` and `emb_hidden_dim` construct a space of the model's architecture.
+The four hyperparameters `keep_heads`, `keep_layers`, `ffn_hidden_dim` and `emb_hidden_dim` construct a space of the model architecture.
 In the final setting of ROSITA, `keep_heads=2`, `keep_layers=8`, `ffn_hidden_dim=512` and `emb_hidden_dim=128`.
 
 Step2: To train the compressed model with ground-truth labels, run:
