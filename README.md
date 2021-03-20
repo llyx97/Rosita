@@ -2,7 +2,9 @@ ROSITA
 ========
 This repository contains implementation of the paper "ROSITA: Refined BERT cOmpreSsion with InTegrAted techniques
 " 
-The codes for BERT fine-tuning are modified from [huggingface/transformers](https://github.com/huggingface/transformers).
+
+The codes for fine-tuning models (w/o knowledge distillation) are modified from [huggingface/transformers](https://github.com/huggingface/transformers).
+
 The codes for knowledge distillation are modified from [TinyBERT](https://github.com/huawei-noah/Pretrained-Language-Model/tree/master/TinyBERT)
 
 Requirements
