@@ -7,7 +7,7 @@ The codes for fine-tuning models (w/o knowledge distillation (KD)) are modified 
 
 The codes for KD are modified from [TinyBERT](https://github.com/huawei-noah/Pretrained-Language-Model/tree/master/TinyBERT).
 
-The training procedure of different models is illustrated below. For more details, please refer to the paper.
+The training procedure of different models is illustrated below. For more details of the experimental setup, please refer to the appendix of our paper.
 
 Requirements
 ========
@@ -40,7 +40,7 @@ The augmented dataset `train_aug.tsv` is automatically saved into `data/${TASK_N
 
 Fine-tuning BERT
 ========
-To fine-tune the pre-trained BERT model on different tasks, enter `Pruning/` and run:
+To fine-tune the pre-trained BERT model on a downstream task, enter the directory `Pruning/` and run:
 ```
 python run_glue.py \
   --model_type bert \
