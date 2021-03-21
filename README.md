@@ -2,9 +2,9 @@
 
 This repository contains implementation of the paper "ROSITA: Refined BERT cOmpreSsion with InTegrAted techniques" in AAAI 2021.
 
-The code for fine-tuning models (w/o knowledge distillation (KD)) are modified from [huggingface/transformers](https://github.com/huggingface/transformers).
+The code for fine-tuning models (w/o knowledge distillation (KD)) is modified from [huggingface/transformers](https://github.com/huggingface/transformers).
 
-The code for KD are modified from [TinyBERT](https://github.com/huawei-noah/Pretrained-Language-Model/tree/master/TinyBERT).
+The code for KD is modified from [TinyBERT](https://github.com/huawei-noah/Pretrained-Language-Model/tree/master/TinyBERT).
 
 The training procedure of different models is illustrated as follows
 
@@ -154,7 +154,7 @@ where the training hyperparameter are for the CoLA dataset. For settings of the 
 ## Fine-tuning ROSITA w/ KD
 
 
-## KD Setting1: one-step pruning + one-stage KD
+### KD Setting1: one-step pruning + one-stage KD
 
 Requirements: [Fine-tuned BERT](https://github.com/llyx97/Rosita#fine-tuning-bert-base)
 
