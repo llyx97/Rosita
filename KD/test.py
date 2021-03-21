@@ -953,6 +953,7 @@ def main():
             task_name = "mnli"
 
     if args.do_predict:
+        processor = processors[task_name]()
         test_dataloader, num_test_examples, _ = build_dataloader('test', args, processor, label_list, tokenizer, output_mode)
         logger.info("***** Running prediction *****")
         logger.info("  Num examples = %d", num_test_examples)
