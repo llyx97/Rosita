@@ -1271,7 +1271,7 @@ def main():
                 if name in modules2prune:
                     cur_score = score[param]
                     score_dict[name] = cur_score.cpu()
-            torch.save(score_dict, '%s/taylor.pkl'%args.output_dir)
+            torch.save(score_dict, '%s/taylor_score/taylor.pkl'%args.output_dir)
 
         if 'tb_writer' in dir():
             tb_writer.close()
