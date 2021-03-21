@@ -1,22 +1,22 @@
-ROSITA
+# ROSITA
 ========
 This repository contains implementation of the paper "ROSITA: Refined BERT cOmpreSsion with InTegrAted techniques" in AAAI 2021.
 
-The codes for fine-tuning models (w/o knowledge distillation (KD)) are modified from [huggingface/transformers](https://github.com/huggingface/transformers).
+The code for fine-tuning models (w/o knowledge distillation (KD)) are modified from [huggingface/transformers](https://github.com/huggingface/transformers).
 
-The codes for KD are modified from [TinyBERT](https://github.com/huawei-noah/Pretrained-Language-Model/tree/master/TinyBERT).
+The code for KD are modified from [TinyBERT](https://github.com/huawei-noah/Pretrained-Language-Model/tree/master/TinyBERT).
 
-The training procedure of different models is illustrated below. For more details of the experimental setup and hyper-parameters, please refer to our paper.
+The training procedure of different models is illustrated as follows
 
-Requirements
-========
+## Requirements
+
 Python3 <br />
 torch=1.6.0 <br />
 tqdm <br />
 boto3 <br />
 
-Data Preparation
-========
+## Data Preparation
+
 Step1: Download the [GLUE data](https://gluebenchmark.com/tasks) by running:
 ```
 python download_glue_data.py --data_dir data --tasks all
@@ -93,7 +93,7 @@ python train.py \
 ```
 In this training process, the top-most layers of BERT(student) will be iteratively compressed until the number of layers reduces to 8.
 
-One-step pruning & fine-tuning
+One-step pruning + fine-tuning w/o KD
 ========
 Requirements: [Fine-tuned BERT](https://github.com/llyx97/Rosita#fine-tuning-bert-base)
 
@@ -151,11 +151,14 @@ python run_glue.py \
 where the training hyperparameter are for the CoLA dataset. For settings of the other datasets, please refer to the appendix of our paper.
 
 
+Fine-tuning ROSITA w/ KD
+========
+
 KD Setting1: one-step pruning + one-stage KD
 ========
 Requirements: [Fine-tuned BERT](https://github.com/llyx97/Rosita#fine-tuning-bert-base)
 
-Step1: Compress BERT as in Step1 and Step2 of One-step pruning & fine-tuning.
+Step1: Compress BERT as in Step1 and Step2 of One-step pruning + fine-tuning w/o KD.
 
 Step2: To train the compressed model with KD Setting1, enter `KD/` and run:
 ```
