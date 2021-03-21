@@ -68,9 +68,9 @@ python run_glue.py \
   --is_prun False \
 ```
 
-## Training BERT(student)
+## Training BERT-base(student)
 
-To train the BERT(student) with the fine-tuned BERT-base as teacher, enter the directory `KD/` and run:
+To train the BERT-base(student) with the fine-tuned BERT-base as teacher, enter the directory `KD/` and run:
 ```
 python train.py \
         --config_dir configurations/config_bert-student.json \
@@ -78,11 +78,11 @@ python train.py \
         --do_lower_case \
         --aug_train 
 ```
-The trained BERT(student) model will be automatically saved into `models/bert_student/${TASK_NAME}$`.
+The trained BERT-base(student) model will be automatically saved into `models/bert_student/${TASK_NAME}$`.
 
 ## Training BERT-8layer
 
-To train the BERT-8layer with BERT(student) as the teacher, run:
+To train the BERT-8layer with BERT-base(student) as the teacher, run:
 ```
 python train.py \
         --config_dir configurations/config_bert-8layer.json \
@@ -90,7 +90,7 @@ python train.py \
         --do_lower_case \
         --aug_train 
 ```
-In this training process, the top-most layers of BERT(student) will be iteratively compressed until the number of layers reduces to 8.
+In this training process, the top-most layers of BERT-base(student) will be iteratively compressed until the number of layers reduces to 8.
 
 ## One-step pruning + fine-tuning w/o KD
 
@@ -177,7 +177,7 @@ When it comes to the augmented datasets for QNLI, QQP and MNLI, we can run `trai
 
 ### KD Setting2: one-step pruning + two-stage KD
 
-Requirements: [Fine-tuned BERT](https://github.com/llyx97/Rosita#fine-tuning-bert-base), [BERT(student)](https://github.com/llyx97/Rosita#training-bertstudent)
+Requirements: [Fine-tuned BERT](https://github.com/llyx97/Rosita#fine-tuning-bert-base), [BERT-base(student)](https://github.com/llyx97/Rosita#training-bertstudent)
 
 Step1: Compute the weight importance metric by entering `KD/` and running:
 ```
@@ -193,7 +193,7 @@ python train.py \
         --compute_taylor 
 ```
 
-Step2: Compress the BERT(student) model by running:
+Step2: Compress the BERT-base(student) model by running:
 ```
 python3 pruning_one_step.py \
         -model_path ../models/bert_student \
@@ -217,9 +217,9 @@ python train.py \
 
 ### KD Setting3: iterative width pruning + two-stage KD
 
-Requirements: [BERT(student)](https://github.com/llyx97/Rosita#training-bertstudent)
+Requirements: [BERT-base(student)](https://github.com/llyx97/Rosita#training-bertstudent)
 
-Step1: Compress BERT(student) to 8 layers by entering `KD/` and running:
+Step1: Compress BERT-base(student) to 8 layers by entering `KD/` and running:
 ```
 python3 pruning_one_step.py \
         -model_path ../models/bert_student \
