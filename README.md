@@ -171,8 +171,8 @@ python train.py \
 When it comes to the augmented datasets for QNLI, QQP and MNLI, we can run `train_with_subset.py` instead, which loads the training subsets (constructed in Data Preparation) to reduce the memory consumption. `train_with_subset.py` can also be used in the other KD settings.
 
 
-KD Setting2: one-step pruning + two-stage KD
-========
+### KD Setting2: one-step pruning + two-stage KD
+
 Requirements: [Fine-tuned BERT](https://github.com/llyx97/Rosita#fine-tuning-bert-base), [BERT(student)](https://github.com/llyx97/Rosita#training-bertstudent)
 
 Step1: Compute the weight importance metric by entering `KD/` and running:
@@ -211,8 +211,8 @@ python train.py \
 ```
 
 
-KD Setting3: iterative width pruning + two-stage KD
-========
+### KD Setting3: iterative width pruning + two-stage KD
+
 Requirements: [BERT(student)](https://github.com/llyx97/Rosita#training-bertstudent)
 
 Step1: Compress BERT(student) to 8 layers by entering `KD/` and running:
@@ -237,8 +237,8 @@ python train.py \
 ```
 
 
-KD Setting4: iterative width&depth pruning + three-stage KD
-========
+### KD Setting4: iterative width&depth pruning + three-stage KD
+
 Requirements: [BERT-8layer](https://github.com/llyx97/Rosita#training-bert-8layer) trained with iterative depth pruning
 
 Train and iteratively compress the BERT-8layer model by entering `KD/` and running:
@@ -250,8 +250,8 @@ python train.py \
         --aug_train
 ```
 
-Evaluation
-========
+## Evaluation
+
 To evaluate any trained model on the dev and test sets, enter `KD/` and run:
 ```
 python test.py \
@@ -275,8 +275,8 @@ Here we provide the ROSITA models trained under KD Setting4 for evaluation:
 
 [ROSITA for MNLI](https://drive.google.com/file/d/1R06Ie80CUj9UxKFceQ2dM4xLOxpw9w8B/view?usp=sharing)
 
-Citation
-========
+## Citation
+
 If you use this repository in a published research, please cite our paper:
 ```
 @inproceedings{ROSITA,
