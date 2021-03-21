@@ -18,7 +18,7 @@
 
 from __future__ import absolute_import, division, print_function
 
-import argparse, csv, logging, os, random, sys, json, torch, gc
+import argparse, csv, logging, os, random, sys, json, torch, gc, re
 import numpy as np
 from torch.utils.data import (DataLoader, RandomSampler, SequentialSampler,
                               TensorDataset)
@@ -739,7 +739,6 @@ def pruning_schedule(prun_times, max_prun_times,
     return keep_heads, ffn_hidden_dim, emb_hidden_dim
 
 
-
 def init_prun(args, tlayer_num, tatt_heads, num_train_examples):
     if args.depth_or_width=='depth':
         max_prun_times, prun_times = tlayer_num - args.keep_layers, 0
@@ -748,7 +747,6 @@ def init_prun(args, tlayer_num, tatt_heads, num_train_examples):
     prun_freq = args.prun_period_proportion * args.num_train_epochs / max_prun_times
     prun_step = int(prun_freq * num_train_examples/args.train_batch_size/args.gradient_accumulation_steps)
     return max_prun_times, prun_times, prun_freq, prun_step
-
 
 
 def build_dataloader(set_type, args, processor, label_list, tokenizer, output_mode, subset_id=None):
@@ -764,6 +762,16 @@ def build_dataloader(set_type, args, processor, label_list, tokenizer, output_mo
     batch_size = args.eval_batch_size if set_type=='eval' else args.train_batch_size
     dataloader = DataLoader(data, sampler=sampler, batch_size=batch_size)
     return dataloader, labels, data
+
+
+def count_data(args):
+    file_name = 'train_aug.tsv' if args.aug_train else 'train.tsv'
+    file_name = os.path.join(args.data_dir, file_name)
+    file = open(file_name, 'r')
+    data = file.readlines()
+    file.close()
+    num_data = len(data) if args.task_name=='CoLA' else len(data)-1
+    return num_data
 
 
 def main():
@@ -932,21 +940,7 @@ def main():
             "rte": {"max_seq_length": 128, 'train_batch_size': 32}
     }
 
-    # number of augmented data for each dataset
-    num_aug_data = {
-            "cola": 213080,
-            "mnli": 8049121,
-            "qnli": 4246837,
-            "sst-2": 1118455,
-            "qqp": 7621089
-    }
 
-    # number of subsets for each dataset
-    num_subsets = {
-            "mnli": 17,
-            "qnli": 9,
-            "qqp":4
-    }
 
     acc_tasks = ["mnli", "mrpc", "sst-2", "qqp", "qnli", "rte"]
     corr_tasks = ["sts-b"]
@@ -997,6 +991,14 @@ def main():
     fw_args.write(str(args))
     fw_args.close()
 
+    # number of subsets for each dataset
+    num_subsets = 0
+    for root,dirs,files in os.walk(args.data_dir):
+        pattern = 'train_aug.*?pt' if 'train_aug0.pt' in files else 'train_aug.*?tsv'
+        for file in files:
+            if re.match(pattern, file) and re.findall(r'\d+', file)!=[]:
+                num_subsets += 1
+
     if task_name not in processors:
         raise ValueError("Task not found: %s" % task_name)
 
@@ -1012,7 +1014,8 @@ def main():
                 args.gradient_accumulation_steps))
         args.train_batch_size = args.train_batch_size // args.gradient_accumulation_steps
 
-        num_train_examples = num_aug_data[task_name]
+        num_train_examples = count_data(args)
+
         num_train_optimization_steps = int(
             num_train_examples / args.train_batch_size / args.gradient_accumulation_steps) * args.num_train_epochs
     eval_dataloader, eval_labels, eval_data = build_dataloader('eval', args, processor, label_list, tokenizer, output_mode)
@@ -1088,7 +1091,7 @@ def main():
             student_model.train()
             nb_tr_examples, nb_tr_steps, epoch_step = 0, 0, 0
 
-            for subset_id in range(num_subsets[task_name]):
+            for subset_id in range(num_subsets):
                 if not (subset_id==0 and epoch_==0):
                     try:
                         del train_examples, train_features, train_data, train_sampler, train_dataloader
