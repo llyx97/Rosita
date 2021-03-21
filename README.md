@@ -239,11 +239,25 @@ KD Setting4: iterative width&depth pruning + three-stage KD
 ========
 Requirements: [BERT-8layer](https://github.com/llyx97/Rosita#training-bert-8layer) trained with iterative depth pruning
 
-Step1: Train and iteratively compress the BERT-8layer model by running:
+Train and iteratively compress the BERT-8layer model by entering `KD/` and running:
 ```
 python train.py \
         --config_dir configurations/config_setting4.json \
         --task_name ${TASK_NAME}$ \
         --do_lower_case \
         --aug_train
+```
+
+Evaluation
+========
+To evaluate any trained model on the dev and test sets, enter `KD/` and run:
+```
+python test.py \
+        --student_model ${PATH_OF_THE_MODEL_TO_EVALUATE}$ \
+        --output_dir  ${PATH_TO_OUTPUT_EVALUATION_RESULTS}$ \
+        --data_dir ../data/${TASK_NAME}$ \
+        --task_name ${TASK_NAME}$ \
+        --do_lower_case \
+        --do_eval \
+        --do_predict
 ```
