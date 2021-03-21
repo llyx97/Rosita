@@ -84,7 +84,7 @@ The trained BERT(student) model will be automatically saved into `models/bert_st
 
 Training BERT-8layer
 ========
-To train the BERT-8layer with BERT(student as the teacher, run:
+To train the BERT-8layer with BERT(student) as the teacher, run:
 ```
 python train.py \
         --config_dir configurations/config_bert-8layer.json \
@@ -92,6 +92,7 @@ python train.py \
         --do_lower_case \
         --aug_train 
 ```
+In this training process, the top-most layers of BERT(student) will be iteratively compressed until the number of layers reduces to 8.
 
 One-step pruning & fine-tuning
 ========
