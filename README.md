@@ -150,7 +150,7 @@ python run_glue.py \
 where ${MAX_SEQ_LENGTH}$ and ${EPOCH_NUM}$ for different datasets are shown as follows:
 
 | Dataset | CoLA | SST-2  | QNLI  | QQP  | MNLI  |
-|-|-|
+|-|-|-|-|-|-|
 | ${MAX_SEQ_LENGTH}$ | 64  |  64  |  128   |   128   |   128   |
 | ${EPOCH_NUM}$ |      20  |  5   |  5     |   5     |   5     |
 
