@@ -45,7 +45,7 @@ The following (Linux) commands can be used to split the dataset:
 cd data/${TASK_NAME}$
 split -500000 -d train_aug.tsv train_aug
 ```
-Now we have subsets with 500,000 datas in each. Rename the subset files as `train_aug0.tsv, train_aug1.tsv ...`
+Now we have subsets with 500,000 data samples in each. Rename the subset files as `train_aug0.tsv, train_aug1.tsv ...`
 
 Fine-tuning BERT-base
 ========
@@ -95,7 +95,24 @@ python train.py \
 
 One-step pruning & fine-tuning
 ========
-Step1: To compress the fine-tuned BERT-base model, enter the directory `Pruning/` and run:
+Step1: To compress the fine-tuned BERT-base model, we first need to determine the importance of model weights. We use a metric based on first-order taylor expansion, which can be computed by entering the directory `Pruning/` and runnning:
+```
+python run_glue.py \
+  --model_type bert \
+  --task_name ${TASK_NAME}$ \
+  --data_dir ../data/${TASK_NAME}$ \
+  --max_seq_length 128 \
+  --per_gpu_train_batch_size 32 \
+  --num_train_epochs 1.0 \
+  --save_steps 0 \
+  --model_name_or_path ../models/bert_ft/${TASK_NAME}$ \
+  --output_dir ../models/bert_ft/${TASK_NAME}$ \
+  --compute_taylor True \
+  --is_prun False 
+```
+The results will be saved to `../models/bert_ft/${TASK_NAME}$/taylor_score/taylor.pkl`
+
+Step2: Now we can conduct model compression by running:
 ```
 python3 pruning_one_step.py \
         -model_path ../models/bert_ft \
@@ -109,7 +126,7 @@ python3 pruning_one_step.py \
 The four hyperparameters `keep_heads`, `keep_layers`, `ffn_hidden_dim` and `emb_hidden_dim` construct a space of the model architecture.
 In the final setting of ROSITA, `keep_heads=2`, `keep_layers=8`, `ffn_hidden_dim=512` and `emb_hidden_dim=128`.
 
-Step2: To train the compressed model with ground-truth labels, run:
+Step3: To train the compressed model with ground-truth labels, run:
 ```
 python run_glue.py \
   --model_type bert \
