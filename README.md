@@ -1,7 +1,6 @@
 ROSITA
 ========
-This repository contains implementation of the paper "ROSITA: Refined BERT cOmpreSsion with InTegrAted techniques
-" 
+This repository contains implementation of the paper "ROSITA: Refined BERT cOmpreSsion with InTegrAted techniques" in AAAI 2021.
 
 The codes for fine-tuning models (w/o knowledge distillation (KD)) are modified from [huggingface/transformers](https://github.com/huggingface/transformers).
 
@@ -264,7 +263,7 @@ python test.py \
 
 Citation
 ========
-If you use this code as part of any published research, please acknowledge the following paper
+If you use this repository in a published research, please cite the following paper
 ```
 @inproceedings{ROSITA,
 author = {Yuanxin Liu and Zheng Lin and Fengcheng Yuan},
@@ -272,3 +271,4 @@ title = {ROSITA: Refined BERT cOmpreSsion with InTegrAted techniques},
 booktitle = {AAAI 2021},
 year = {2021}
 }
+```
