@@ -261,10 +261,15 @@ python test.py \
         --do_predict
 ```
 Here we provide the ROSITA models trained under KD Setting4 for evaluation:
+
 [ROSITA for CoLA](https://drive.google.com/file/d/1ZHpQ5p_xJuHDKT2uCuxYbgN9vbibVt8o/view?usp=sharing)
+
 [ROSITA for SST-2](https://drive.google.com/file/d/1zUhs-6GEzgZH7sD7_bQIPrke_MEo-1KT/view?usp=sharing)
+
 [ROSITA for QNLI](https://drive.google.com/file/d/1ICS31Et2zIrbt2znXKCO9VpT9qhR49b7/view?usp=sharing)
+
 [ROSITA for QQP](https://drive.google.com/file/d/1ijDkd9uQVtvh3hIv3fXajEmqonmk56zX/view?usp=sharing)
+
 [ROSITA for MNLI](https://drive.google.com/file/d/1R06Ie80CUj9UxKFceQ2dM4xLOxpw9w8B/view?usp=sharing)
 
 Citation
