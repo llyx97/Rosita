@@ -217,7 +217,7 @@ Step1: Compress BERT(student) to 8 layers by entering `KD/` and running:
 ```
 python3 pruning_one_step.py \
         -model_path ../models/bert_student \
-        -output_dir ../models/bert-8layer \
+        -output_dir ../models/bert-8layer/one_step_prun \
         -task ${TASK_NAME}$ \
         -keep_heads 12 \
         -num_layers 8 \
