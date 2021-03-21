@@ -177,7 +177,7 @@ python train.py \
         --num_train_epochs 1 \
         --do_lower_case \
         --pred_distill \
-        --compute_taylor \
+        --compute_taylor 
 ```
 
 Step2: Compress the BERT(student) model by running:
@@ -186,16 +186,40 @@ python3 pruning_one_step.py \
         -model_path ../models/bert_student \
         -output_dir ../models/prun_bert_student \
         -task ${TASK_NAME}$ \
-        -keep_heads ${NUM_OF_ATTN_HEADS_TO_KEEP}$ \
-        -num_layers ${NUM_OF_LAYERS_TO_KEEP}$ \
-        -ffn_hidden_dim ${HIDDEN_DIM_OF_FFN}$ \
-        -emb_hidden_dim ${MATRIX_RANK_OF_EMB_FACTORIZATION}$
+        -keep_heads 2 \
+        -num_layers 8 \
+        -ffn_hidden_dim 512 \
+        -emb_hidden_dim 128
 ```
 
 Step3: Train the compressed model by running:
 ```
 python train.py \
         --config_dir configurations/config_setting2.json \
+        --task_name ${TASK_NAME}$ \
+        --do_lower_case \
+        --aug_train
+```
+
+
+KD Setting3: iterative width pruning + two-stage KD
+========
+Step1: Compress BERT(student) to 8 layers by entering `KD/` and running:
+```
+python3 pruning_one_step.py \
+        -model_path ../models/bert_student \
+        -output_dir ../models/bert-8layer \
+        -task ${TASK_NAME}$ \
+        -keep_heads 12 \
+        -num_layers 8 \
+        -ffn_hidden_dim 3072 \
+        -emb_hidden_dim -1
+```
+
+Step2: Train and iteratively compress the 8layer BERT model by running:
+```
+python train.py \
+        --config_dir configurations/config_setting3.json \
         --task_name ${TASK_NAME}$ \
         --do_lower_case \
         --aug_train
