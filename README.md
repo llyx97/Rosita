@@ -151,7 +151,7 @@ python run_glue.py \
 where the training hyperparameter are for the CoLA dataset. For settings of the other datasets, please refer to the appendix of our paper.
 
 
-## Fine-tuning ROSITA w/ KD
+## Training w/ KD
 
 
 ### KD Setting1: one-step pruning + one-stage KD
@@ -278,7 +278,7 @@ Here we provide the ROSITA models trained under KD Setting4 for evaluation:
 ## Citation
 
 If you use this repository in a published research, please cite our paper:
-```
+```bibtex
 @inproceedings{ROSITA,
 author = {Yuanxin Liu and Zheng Lin and Fengcheng Yuan},
 title = {ROSITA: Refined BERT cOmpreSsion with InTegrAted techniques},
