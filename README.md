@@ -6,7 +6,6 @@ The code for fine-tuning models (w/o knowledge distillation (KD)) is modified fr
 
 The code for KD is modified from [TinyBERT](https://github.com/huawei-noah/Pretrained-Language-Model/tree/master/TinyBERT).
 
-The training procedure of different models is illustrated as follows
 
 ## Requirements
 
@@ -152,7 +151,12 @@ where the training hyperparameter are for the CoLA dataset. For settings of the 
 
 
 ## Training w/ KD
-
+The following figure illustrates the four different KD settings.
+<br />
+<br />
+<img src="kd_settings.png" width="400" height="410"/>
+<br />
+<br />
 
 ### KD Setting1: one-step pruning + one-stage KD
 
