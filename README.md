@@ -167,6 +167,8 @@ When it comes to the augmented datasets for QNLI, QQP and MNLI, we can run `trai
 
 KD Setting2: one-step pruning + two-stage KD
 ========
+Requirements: [Fine-tuned BERT](https://github.com/llyx97/Rosita#fine-tuning-bert-base), [BERT(student)](https://github.com/llyx97/Rosita#training-bertstudent)
+
 Step1: Compute the weight importance metric by entering `KD/` and running:
 ```
 python train.py \
@@ -205,6 +207,8 @@ python train.py \
 
 KD Setting3: iterative width pruning + two-stage KD
 ========
+Requirements: [BERT(student)](https://github.com/llyx97/Rosita#training-bertstudent)
+
 Step1: Compress BERT(student) to 8 layers by entering `KD/` and running:
 ```
 python3 pruning_one_step.py \
@@ -225,3 +229,8 @@ python train.py \
         --do_lower_case \
         --aug_train
 ```
+
+
+KD Setting4: iterative width&depth pruning + three-stage KD
+========
+Requirements: [BERT-8layer](https://github.com/llyx97/Rosita#training-bert-8layer) trained with iterative depth pruning, 
