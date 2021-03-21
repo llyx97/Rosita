@@ -40,13 +40,12 @@ The augmented dataset `train_aug.tsv` will be automatically saved into `data/${T
 
 Step4 (Optional): For QNLI, QQP and MNLI which have millions of augmented data, we divide `train_aug.tsv` into subsets to reduce the memory consumption in training. 
 
-The following (Linux) commands can serve as a reference:
+The following (Linux) commands can be used to split the dataset:
 ```
 cd data/${TASK_NAME}$
 split -500000 -d train_aug.tsv train_aug
-for i in `ls|grep train_aug`; do a=`echo $i|awk -F '.tsv' '{print $1$2".tsv"}'`; mv $i $a; done
 ```
-Now we have subsets with 500,000 datas in each. The file names are `train_aug00.tsv, train_aug01.tsv ...`
+Now we have subsets with 500,000 datas in each. Rename the subset files as `train_aug0.tsv, train_aug1.tsv ...`
 
 Fine-tuning BERT-base
 ========
