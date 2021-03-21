@@ -1,7 +1,7 @@
 {
  "cola": {
-  "teacher_model": "../models/bert-8layer/CoLA/iter_depth_prun",
-  "student_model": "../models/bert-8layer/CoLA/iter_depth_prun",
+  "teacher_model": "../models/bert-8layer/iter_depth_prun/CoLA",
+  "student_model": "../models/bert-8layer/iter_depth_prun/CoLA",
   "data_dir": "../data/CoLA",
   "output_dir": "../models/setting4/CoLA",
   "lr_schedule": "none",
@@ -20,8 +20,8 @@
   "patience": 10
  },
  "sst-2": {
-  "teacher_model": "../models/bert-8layer/SST-2/iter_depth_prun",
-  "student_model": "../models/bert-8layer/SST-2/iter_depth_prun",
+  "teacher_model": "../models/bert-8layer/iter_depth_prun/SST-2",
+  "student_model": "../models/bert-8layer/iter_depth_prun/SST-2",
   "data_dir": "../data/SST-2",
   "output_dir": "../models/setting4/SST-2",
   "lr_schedule": "none",
@@ -39,8 +39,8 @@
   "num_train_epochs": 10
  },
  "mnli": {
-  "teacher_model": "../models/bert-8layer/MNLI/iter_depth_prun",
-  "student_model": "../models/bert-8layer/MNLI/iter_depth_prun",
+  "teacher_model": "../models/bert-8layer/iter_depth_prun/MNLI",
+  "student_model": "../models/bert-8layer/iter_depth_prun/MNLI",
   "data_dir": "../data/MNLI",
   "output_dir": "../models/setting4/MNLI",
   "lr_schedule": "warmup_linear",
@@ -58,8 +58,8 @@
   "num_train_epochs": 5
  },
  "qnli": {
-  "teacher_model": "../models/bert-8layer/QNLI/iter_depth_prun",
-  "student_model": "../models/bert-8layer/QNLI/iter_depth_prun",
+  "teacher_model": "../models/bert-8layer/iter_depth_prun/QNLI",
+  "student_model": "../models/bert-8layer/iter_depth_prun/QNLI",
   "data_dir": "../data/QNLI",
   "output_dir": "../models/setting4/QNLI",
   "lr_schedule": "none",
@@ -77,8 +77,8 @@
   "num_train_epochs": 7
  },
  "qqp": {
-  "teacher_model": "../models/bert-8layer/QQP/iter_depth_prun",
-  "student_model": "../models/bert-8layer/QQP/iter_depth_prun",
+  "teacher_model": "../models/bert-8layer/iter_depth_prun/QQP",
+  "student_model": "../models/bert-8layer/iter_depth_prun/QQP",
   "data_dir": "../data/QQP",
   "output_dir": "../models/setting4/QQP",
   "lr_schedule": "none",

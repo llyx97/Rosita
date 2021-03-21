@@ -1,7 +1,7 @@
 {
  "cola": {
   "teacher_model": "../models/bert_student/CoLA",
-  "student_model": "../models/bert-8layer/CoLA/one_step_prun",
+  "student_model": "../models/bert-8layer/one_step_prun/CoLA",
   "data_dir": "../data/CoLA",
   "output_dir": "../models/setting3/CoLA/a2_l8_f512_e128",
   "lr_schedule": "none",
@@ -21,7 +21,7 @@
  },
  "sst-2": {
   "teacher_model": "../models/bert_student/SST-2",
-  "student_model": "../models/bert-8layer/SST-2/one_step_prun",
+  "student_model": "../models/bert-8layer/one_step_prun/SST-2",
   "data_dir": "../data/SST-2",
   "output_dir": "../models/setting3/SST-2/a2_l8_f512_e128",
   "lr_schedule": "none",
@@ -40,7 +40,7 @@
  },
  "mnli": {
   "teacher_model": "../models/bert_student/MNLI",
-  "student_model": "../models/bert-8layer/MNLI/one_step_prun",
+  "student_model": "../models/bert-8layer/one_step_prun/MNLI",
   "data_dir": "../data/MNLI",
   "output_dir": "../models/setting3/MNLI/a2_l8_f512_e128",
   "lr_schedule": "warmup_linear",
