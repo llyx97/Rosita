@@ -46,8 +46,8 @@ split -500000 -d train_aug.tsv train_aug
 ```
 Now we have subsets with 500,000 data samples in each. Rename the subset files as `train_aug0.tsv, train_aug1.tsv ...`
 
-Fine-tuning BERT-base
-========
+## Fine-tuning BERT-base
+
 To fine-tune the pre-trained BERT model on a downstream task ${TASK_NAME}$, enter the directory `Pruning/` and run:
 ```
 python run_glue.py \
@@ -69,8 +69,8 @@ python run_glue.py \
   --is_prun False \
 ```
 
-Training BERT(student)
-========
+## Training BERT(student)
+
 To train the BERT(student) with the fine-tuned BERT-base as teacher, enter the directory `KD/` and run:
 ```
 python train.py \
@@ -81,8 +81,8 @@ python train.py \
 ```
 The trained BERT(student) model will be automatically saved into `models/bert_student/${TASK_NAME}$`.
 
-Training BERT-8layer
-========
+## Training BERT-8layer
+
 To train the BERT-8layer with BERT(student) as the teacher, run:
 ```
 python train.py \
@@ -93,8 +93,8 @@ python train.py \
 ```
 In this training process, the top-most layers of BERT(student) will be iteratively compressed until the number of layers reduces to 8.
 
-One-step pruning + fine-tuning w/o KD
-========
+## One-step pruning + fine-tuning w/o KD
+
 Requirements: [Fine-tuned BERT](https://github.com/llyx97/Rosita#fine-tuning-bert-base)
 
 Step1: To compress the fine-tuned BERT-base model, we first need to determine the importance of model weights. We use a metric based on first-order taylor expansion, which can be computed by entering the directory `Pruning/` and runnning:
@@ -151,11 +151,11 @@ python run_glue.py \
 where the training hyperparameter are for the CoLA dataset. For settings of the other datasets, please refer to the appendix of our paper.
 
 
-Fine-tuning ROSITA w/ KD
-========
+## Fine-tuning ROSITA w/ KD
 
-KD Setting1: one-step pruning + one-stage KD
-========
+
+## KD Setting1: one-step pruning + one-stage KD
+
 Requirements: [Fine-tuned BERT](https://github.com/llyx97/Rosita#fine-tuning-bert-base)
 
 Step1: Compress BERT as in Step1 and Step2 of One-step pruning + fine-tuning w/o KD.
