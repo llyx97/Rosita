@@ -261,3 +261,14 @@ python test.py \
         --do_eval \
         --do_predict
 ```
+
+Citation
+========
+If you use this code as part of any published research, please acknowledge the following paper
+```
+@inproceedings{ROSITA,
+author = {Yuanxin Liu and Zheng Lin and Fengcheng Yuan},
+title = {ROSITA: Refined BERT cOmpreSsion with InTegrAted techniques},
+booktitle = {AAAI 2021},
+year = {2021}
+}
