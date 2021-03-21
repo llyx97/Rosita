@@ -151,7 +151,7 @@ where the training hyperparameter are for the CoLA dataset. For settings of the 
 
 KD Setting1: one-step pruning + one-stage KD
 ========
-Step1: Compress BERT as in Step1 of One-step pruning & fine-tuning.
+Step1: Compress BERT as in Step1 and Step2 of One-step pruning & fine-tuning.
 
 Step2: To train the compressed model with KD Setting1, enter `KD/` and run:
 ```
@@ -161,4 +161,42 @@ python train.py \
         --do_lower_case \
         --aug_train 
 ```
-When it comes to the augmented datasets for QNLI, QQP and MNLI, we can run `train_with_subset.py` instead, which loads the training subsets (constructed in Data Preparation) to reduce the memory consumption. 
+When it comes to the augmented datasets for QNLI, QQP and MNLI, we can run `train_with_subset.py` instead, which loads the training subsets (constructed in Data Preparation) to reduce the memory consumption. `train_with_subset.py` can also be used in the other KD settings.
+
+
+KD Setting2: one-step pruning + two-stage KD
+========
+Step1: Compute the weight importance metric by entering `KD/` and running:
+```
+python train.py \
+        --teacher_model ../models/bert_ft/${TASK_NAME}$ \
+        --student_model ../models/bert_student/${TASK_NAME}$ \
+        --data_dir ../data/${TASK_NAME}$ \
+        --task_name ${TASK_NAME}$ \
+        --output_dir ../models/bert_student/${TASK_NAME}$/taylor_score \
+        --num_train_epochs 1 \
+        --do_lower_case \
+        --pred_distill \
+        --compute_taylor \
+```
+
+Step2: Compress the BERT(student) model by running:
+```
+python3 pruning_one_step.py \
+        -model_path ../models/bert_student \
+        -output_dir ../models/prun_bert_student \
+        -task ${TASK_NAME}$ \
+        -keep_heads ${NUM_OF_ATTN_HEADS_TO_KEEP}$ \
+        -num_layers ${NUM_OF_LAYERS_TO_KEEP}$ \
+        -ffn_hidden_dim ${HIDDEN_DIM_OF_FFN}$ \
+        -emb_hidden_dim ${MATRIX_RANK_OF_EMB_FACTORIZATION}$
+```
+
+Step3: Train the compressed model by running:
+```
+python train.py \
+        --config_dir configurations/config_setting2.json \
+        --task_name ${TASK_NAME}$ \
+        --do_lower_case \
+        --aug_train
+```
