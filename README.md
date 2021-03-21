@@ -96,6 +96,8 @@ In this training process, the top-most layers of BERT(student) will be iterative
 
 One-step pruning & fine-tuning
 ========
+Requirements: [Fine-tuned BERT](https://github.com/llyx97/Rosita#fine-tuning-bert-base)
+
 Step1: To compress the fine-tuned BERT-base model, we first need to determine the importance of model weights. We use a metric based on first-order taylor expansion, which can be computed by entering the directory `Pruning/` and runnning:
 ```
 python run_glue.py \
@@ -152,6 +154,8 @@ where the training hyperparameter are for the CoLA dataset. For settings of the 
 
 KD Setting1: one-step pruning + one-stage KD
 ========
+Requirements: [Fine-tuned BERT](https://github.com/llyx97/Rosita#fine-tuning-bert-base)
+
 Step1: Compress BERT as in Step1 and Step2 of One-step pruning & fine-tuning.
 
 Step2: To train the compressed model with KD Setting1, enter `KD/` and run:
