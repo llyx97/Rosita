@@ -1224,36 +1224,6 @@ def main():
                         model_to_save.config.to_json_file(output_config_file)
                         tokenizer.save_vocabulary(args.output_dir)
 
-                        # Test mnli-mm
-                        #if args.pred_distill and task_name == "mnli":
-                        #    task_name = "mnli-mm"
-                        #    processor = processors[task_name]()
-                        #    if not os.path.exists(args.output_dir + '-MM'):
-                        #        os.makedirs(args.output_dir + '-MM')
-
-                        #    eval_examples = processor.get_dev_examples(args.data_dir)
-
-                        #    eval_features = convert_examples_to_features(
-                        #        eval_examples, label_list, args.max_seq_length, tokenizer, output_mode)
-                        #    eval_data, eval_labels = get_tensor_data(output_mode, eval_features)
-
-                        #    logger.info("***** Running mm evaluation *****")
-                        #    logger.info("  Num examples = %d", len(eval_examples))
-                        #    logger.info("  Batch size = %d", args.eval_batch_size)
-
-                        #    eval_sampler = SequentialSampler(eval_data)
-                        #    eval_dataloader = DataLoader(eval_data, sampler=eval_sampler,
-                        #                                 batch_size=args.eval_batch_size)
-
-                        #    result = do_eval(student_model, task_name, eval_dataloader,
-                        #                     device, output_mode, eval_labels, num_labels)
-
-                        #    result['global_step'] = global_step
-
-                        #    tmp_output_eval_file = os.path.join(args.output_dir + '-MM', "eval_results.txt")
-                        #    result_to_file(result, tmp_output_eval_file)
-
-                        #    task_name = 'mnli'
                     student_model.train()
 
         if args.compute_taylor:
