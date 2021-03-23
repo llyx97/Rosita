@@ -1,6 +1,6 @@
 # ROSITA
 
-This repository contains implementation of the paper "ROSITA: Refined BERT cOmpreSsion with InTegrAted techniques" in AAAI 2021.
+This repository contains implementation of the [paper](https://arxiv.org/abs/2103.11367) "ROSITA: Refined BERT cOmpreSsion with InTegrAted techniques" in AAAI 2021.
 
 The code for fine-tuning models (w/o knowledge distillation (KD)) is modified from [huggingface/transformers](https://github.com/huggingface/transformers).
 
