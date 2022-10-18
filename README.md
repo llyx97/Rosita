@@ -288,7 +288,7 @@ Here we provide the ROSITA models trained under KD Setting4 for evaluation:
 
 If you use this repository in a published research, please cite our paper:
 ```bibtex
-@inproceedings{ROSITA,
+@inproceedings{Liu2021ROSITA,
 author = {Yuanxin Liu and Zheng Lin and Fengcheng Yuan},
 title = {ROSITA: Refined BERT cOmpreSsion with InTegrAted techniques},
 booktitle = {AAAI 2021},
